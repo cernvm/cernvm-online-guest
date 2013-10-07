@@ -11,7 +11,7 @@ VM_URL_CONTEXT="https://cernvm-online.cern.ch/api/context"
 CERNVM_SITE_CONFIG="/etc/cernvm/site.conf"
 CERNVM_DEFAULT_CONFIG="/etc/cernvm/default.conf"
 CERNVM_ONLINE_D="/etc/cernvm/online.d"
-AMICONFIG="/usr/sbin/amiconfig.sh user"
+AMICONFIG="/usr/sbin/amiconfig.sh user --force"
 AMICONFIG_API_VERSION="2007-12-15"
 AMICONFIG_CONTEXT_PATH="/var/lib/amiconfig-online/"
 ##################################################
