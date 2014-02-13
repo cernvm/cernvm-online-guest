@@ -107,7 +107,7 @@ function download {
     [ -z "$FILE" ] && FILE="-"
 
     # Download checking certificates
-    curl --connect-timeout 5 --silent ${F_CURL} ${CERT_CHECK} -o ${FILE} "$URL"
+    curl --connect-timeout 10 --silent ${F_CURL} ${CERT_CHECK} -o ${FILE} "$URL"
 
     # Check for errors
     ANS=$?
