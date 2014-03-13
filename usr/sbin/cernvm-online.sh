@@ -598,7 +598,8 @@ elif [ "$OP" == "pair" ]; then
 # ==========================================
     [ -z "$2" ] && echo "Please specify a pairing pin!" 1>&2 && exit 1
     PIN=$2
-    contextualize "pin" "$PIN"
+    SECRET="$3"
+    contextualize "pin" "$PIN" "$SECRET"
 
     exit $?
 
@@ -612,7 +613,7 @@ else
     echo " cernvm-online.sh site                  - Perform cloud contextualization"
     echo "                                          according to CernVM Site configuration."
     echo " cernvm-online.sh login                 - Display the pairing login screen"
-    echo " cernvm-online.sh pair <PIN>            - Performs pin pairing"
+    echo " cernvm-online.sh pair <PIN> [<secret>] - Performs pin pairing"
     echo " cernvm-online.sh apply <uuid[:secret]> - Download and apply the specified"
     echo "                                          contextualization information."
     echo ""
