@@ -6,7 +6,7 @@
 # the CernVM Online contextualization mechanism
 ##################################################
 VM_CONFIG_FILE="/etc/cernvm/online.conf"
-VM_CA_FILE="/etc/cernvm/keys/cern-ca.pem"
+VM_CA_PATH="/etc/cernvm/keys/CAs"
 VM_URL_CONTEXT="https://cernvm-online.cern.ch/api/context"
 CERNVM_SITE_CONFIG="/etc/cernvm/site.conf"
 CERNVM_DEFAULT_CONFIG="/etc/cernvm/default.conf"
@@ -18,7 +18,7 @@ AMICONFIG_CONTEXT_PATH="/var/lib/amiconfig-online/"
 
 # Prepare some advanced info
 VM_VERSION=$(cat /etc/issue.net | grep version | sed 's/.* //' | tr -d '\n')
-CERT_CHECK="--cacert $VM_CA_FILE"
+CERT_CHECK="--capath $VM_CA_PATH"
 
 # Platform-specific flags for the various tools (Mac: -E / linux: -r)
 F_SED="-r"
