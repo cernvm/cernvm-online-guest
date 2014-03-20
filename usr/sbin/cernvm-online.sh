@@ -18,7 +18,7 @@ AMICONFIG_CONTEXT_PATH="/var/lib/amiconfig-online/"
 
 # Prepare some advanced info
 VM_VERSION=$(cat /etc/issue.net | grep version | sed 's/.* //' | tr -d '\n')
-CERT_CHECK="--capath $VM_CA_PATH"
+CERT_CHECK="--cacert ${VM_CA_PATH}/all.pem --capath $VM_CA_PATH"
 
 # Platform-specific flags for the various tools (Mac: -E / linux: -r)
 F_SED="-r"
