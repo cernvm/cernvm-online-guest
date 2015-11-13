@@ -16,8 +16,10 @@ AMICONFIG_API_VERSION="2007-12-15"
 AMICONFIG_CONTEXT_PATH="/var/lib/amiconfig-online/"
 ##################################################
 
+. /etc/cernvm/functions
+
 # Prepare some advanced info
-VM_VERSION=$(cat /etc/issue.net | grep version | sed 's/.* //' | tr -d '\n')
+VM_VERSION=$(ls -1 /.installed_cernvm-system* | cut -d\- -f 3)
 CERT_CHECK="--cacert ${VM_CA_PATH}/all.pem --capath $VM_CA_PATH"
 
 # Platform-specific flags for the various tools (Mac: -E / linux: -r)
@@ -486,7 +488,7 @@ if [ "$OP" == "site" ]; then
     [ ! -f "$CERNVM_SITE_CONFIG" ] && exit 0
     
     # Include site.conf
-    . "$CERNVM_SITE_CONFIG"
+    read_conf "$CERNVM_SITE_CONFIG"
     [ -z "$CERNVM_CONTEXTUALIZATION_KEY" ] && exit 0
 
     # Fetch contextualization information
