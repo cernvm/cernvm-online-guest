@@ -1,8 +1,8 @@
 [Unit]
 Description=Fetch CernVM Online key-based contextualization
-After=local-fs.target network-online.target
+After=local-fs.target network-online.target cernvm.service
 Requires=network-online.target
-Wants=local-fs.target
+Wants=local-fs.target cernvm.service
 
 [Service]
 Type=oneshot
